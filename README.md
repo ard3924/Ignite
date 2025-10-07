@@ -93,14 +93,14 @@ Follow these instructions to get the project up and running on your local machin
 
 6.  **Create an environment file:**
     The frontend likely needs to know the URL of your backend API. Create a `.env` file in the `frontend` directory:
+    ```env
+    VITE_API_URL=http://localhost:5000/api
     ```
-    REACT_APP_API_URL=http://localhost:5000/api
-    ```
-    *(Adjust the port and path if your backend is configured differently.)*
+    *(Adjust the port if your backend is configured differently. For Vite, the prefix must be `VITE_`.)*
 
 7.  **Start the frontend development server:**
     ```sh
-    npm start
+    npm run dev
     ```
     The React application will open in your browser, usually at `http://localhost:3000`.
 
