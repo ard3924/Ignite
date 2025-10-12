@@ -32,7 +32,7 @@ Based on the project dependencies, here are some of the core features:
 
 | Category      | Technology                                                                                             |
 |---------------|--------------------------------------------------------------------------------------------------------|
-| **Frontend**  | [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/), [jwt-decode](https://www.npmjs.com/package/jwt-decode) |
+| **Frontend**  | [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/),[Framer-Motion](https://www.npmjs.com/package/framer-motion),[jwt-decode](https://www.npmjs.com/package/jwt-decode) |
 | **Backend**   | [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/), [MongoDB](https://www.mongodb.com/), [Cloudinary](https://cloudinary.com/) |
 | **Dev Tools** | [ESLint](https://eslint.org/), [esbuild](https://esbuild.github.io/),[PostMan](https://www.postman.com/),[Commander.js](https://github.com/tj/commander.js) |
 
