@@ -7,6 +7,9 @@ import Card from '../components/Card';
 import axiosInstance from '../axiosInterceptor';
 import { useAuth } from '../hooks/AuthContext';
 
+// Import local image
+import aboutBgImg from '../assets/aboutpagebgimg.avif';
+
 const TestimonialForm = () => {
     const { isLoggedIn, user } = useAuth();
     const [rating, setRating] = useState(0);
@@ -121,14 +124,14 @@ const ContactSection = ({ variants }) => (
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     Get In Touch
                 </h2>
                 <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                     We’d love to hear from you! Whether you have a question about features, trials, or anything else, our team is ready to answer all your questions.
                 </p>
             </div>
-            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card className="p-8 text-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
                     <Mail size={32} className="mx-auto text-indigo-500 mb-4" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Email Us</h3>
@@ -173,7 +176,7 @@ const AboutPage = () => {
                     variants={sectionVariants}
                 >
                     <div className="order-2 md:order-1">
-                        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                             About Ignite
                         </h2>
                         <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -186,7 +189,7 @@ const AboutPage = () => {
                         </div>
                     </div>
                     <div className="order-1 md:order-2">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Team collaborating on a project" className="rounded-2xl shadow-2xl" />
+                        <img src={aboutBgImg} alt="Team collaborating on a project" className="rounded-2xl shadow-2xl" />
                     </div>
                 </motion.div>
 
@@ -198,14 +201,14 @@ const AboutPage = () => {
                     variants={sectionVariants}
                 >
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                             Our Core Values
                         </h2>
                         <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                             The principles that guide our mission to connect talent with opportunity.
                         </p>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <ValueCard
                             icon={<Users size={32} />}
                             title="Collaboration"
@@ -234,7 +237,7 @@ const AboutPage = () => {
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                             Why Join Ignite?
                         </h2>
                         <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
@@ -242,7 +245,7 @@ const AboutPage = () => {
                         </p>
                     </div>
                     <motion.div
-                        className="grid md:grid-cols-2 gap-8 lg:gap-12"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
                         variants={{
                             hidden: { opacity: 0 },
                             visible: {

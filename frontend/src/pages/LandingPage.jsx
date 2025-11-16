@@ -6,6 +6,15 @@ import { motion } from 'framer-motion';
 import Card from '../components/Card';
 import axiosInstance from '../axiosInterceptor';
 
+// Import local images
+import heroBg from '../assets/igniteherosectionbgimg.avif';
+import findYourCrewImg from '../assets/findyourcrewimg.avif';
+import buildSomethingGreatImg from '../assets/buildssomthinggreatimg.avif';
+import showcaseYourWorkImg from '../assets/showcaseyourwork.avif';
+import postYourProjectImg from '../assets/postyourprojectimg.avif';
+import discoverTalentImg from '../assets/discovertalentimg.avif';
+import collaborateAndManageImg from '../assets/collaborateandmanangeimg.avif';
+
 const FeatureCard = ({ imageSrc, title, description }) => (
     <Card className="flex flex-col text-center hover:shadow-xl transition-all duration-300 overflow-hidden group transform hover:scale-105">
         <img src={imageSrc} alt={title} className="w-full h-48 object-cover" />
@@ -86,8 +95,8 @@ const FreelancerCtaSection = () => (
         <div className="bg-gradient-to-l from-indigo-600 to-purple-600 dark:from-indigo-700 dark:to-purple-700 rounded-2xl p-8 md:p-12 text-white shadow-2xl">
             <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <h3 className="text-3xl font-extrabold mb-3">Ready to showcase your skills?</h3>
-                    <p className="text-pink-100 mb-6 max-w-lg">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3">Ready to showcase your skills?</h3>
+                    <p className="text-sm sm:text-base md:text-lg text-pink-100 mb-6 max-w-lg">
                         Join our community of talented freelancers and find projects that ignite your passion.
                     </p>
                     <ul className="space-y-3 mb-8">
@@ -127,8 +136,8 @@ const ClientCtaSection = () => (
                     <Lightbulb size={128} className="text-white/20" />
                 </div>
                 <div className="text-left md:text-right">
-                    <h3 className="text-3xl font-extrabold mb-3">Have a project in mind?</h3>
-                    <p className="text-indigo-100 mb-6 max-w-lg ml-auto">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3">Have a project in mind?</h3>
+                    <p className="text-sm sm:text-base md:text-lg text-indigo-100 mb-6 max-w-lg ml-auto">
                         Join our platform as a client to connect with skilled freelancers ready to bring your ideas to life.
                     </p>
                     <ul className="space-y-3 mb-8">
@@ -191,19 +200,18 @@ const LandingPage = () => {
 
     return (
         <div className="bg-white dark:bg-gray-900 pt-10">
-            <div className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center text-white px-4">
+            <div className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center text-white px-4" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute inset-0 bg-black opacity-50"></div>
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Team collaborating" className="absolute inset-0 w-full h-full object-cover" />
                 <motion.div
                     className="relative z-10"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg bg-gradient-to-r from-white to-purple-300 text-transparent bg-clip-text">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg bg-gradient-to-r from-white to-purple-300 text-transparent bg-clip-text">
                         Where Great Ideas Meet Great Talent
                     </h2>
-                    <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 drop-shadow-md">
+                    <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 drop-shadow-md">
                         Join a community of passionate freelancers and innovative clients. Your next big opportunity is just a click away.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -231,22 +239,22 @@ const LandingPage = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={sectionVariants}
             >
-                <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
                     Built for Collaboration
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <FeatureCard
-                        imageSrc="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                        imageSrc={findYourCrewImg}
                         title="Find Your Crew"
                         description="Discover group projects that align with your skills and interests. Connect with like-minded freelancers and build your professional network."
                     />
                     <FeatureCard
-                        imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                        imageSrc={buildSomethingGreatImg}
                         title="Build Something Great"
                         description="Collaborate on a project from start to finish. Our tools help you manage tasks, share code, and communicate effectively with your team."
                     />
                     <FeatureCard
-                        imageSrc="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                        imageSrc={showcaseYourWorkImg}
                         title="Showcase Your Work"
                         description="Build a portfolio of completed projects to showcase your talent. Get recognized and attract new opportunities based on your contributions."
                     />
@@ -260,7 +268,7 @@ const LandingPage = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={sectionVariants}
             >
-                <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
                     How It Works
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
@@ -296,10 +304,10 @@ const LandingPage = () => {
                     variants={sectionVariants}
                 >
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                             Featured Projects
                         </h2>
-                        <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-2 text-base sm:text-lg text-gray-600 dark:text-gray-400">
                             Get a glimpse of the exciting opportunities on Ignite.
                         </p>
                     </div>
@@ -319,22 +327,22 @@ const LandingPage = () => {
                 variants={sectionVariants}
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
                         Hiring Made Easy
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <FeatureCard
-                            imageSrc="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            imageSrc={postYourProjectImg}
                             title="Post Your Project"
                             description="Describe your project, specify the required skills, and set your budget. Our platform makes it easy to create a detailed project listing."
                         />
                         <FeatureCard
-                            imageSrc="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            imageSrc={discoverTalentImg}
                             title="Discover Talent"
                             description="Browse through profiles of skilled freelancers. Review their past projects, skills, and ratings to find the perfect fit for your team."
                         />
                         <FeatureCard
-                            imageSrc="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            imageSrc={collaborateAndManageImg}
                             title="Collaborate & Manage"
                             description="Use our built-in tools to manage your project, communicate with your team, and track progress from start to finish."
                         />
@@ -350,7 +358,7 @@ const LandingPage = () => {
                 variants={sectionVariants}
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
                         What Our Users Say
                     </h2>
                     {testimonials.length > 0 ? (

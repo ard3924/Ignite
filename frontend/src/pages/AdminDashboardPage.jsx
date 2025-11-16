@@ -153,7 +153,7 @@ const AdminDashboardPage = () => {
             animate="visible"
         >
             <motion.div variants={itemVariants} className="mb-10 text-center">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white flex items-center justify-center gap-3">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center justify-center gap-3">
                     <Shield size={36} className="text-indigo-500" />
                     Admin Dashboard
                 </h1>
@@ -163,17 +163,17 @@ const AdminDashboardPage = () => {
             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <Card className="text-center">
                     <Users size={32} className="mx-auto text-blue-500 mb-2" />
-                    <p className="text-4xl font-bold text-gray-900 dark:text-white">{stats.users}</p>
+                    <p className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{stats.users}</p>
                     <p className="text-md text-gray-500 dark:text-gray-400">Total Users</p>
                 </Card>
                 <Card className="text-center">
                     <Briefcase size={32} className="mx-auto text-purple-500 mb-2" />
-                    <p className="text-4xl font-bold text-gray-900 dark:text-white">{stats.projects}</p>
+                    <p className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{stats.projects}</p>
                     <p className="text-md text-gray-500 dark:text-gray-400">Total Projects</p>
                 </Card>
                 <Card className="text-center">
                     <UserCheck size={32} className="mx-auto text-green-500 mb-2" />
-                    <p className="text-4xl font-bold text-gray-900 dark:text-white">{stats.applicants}</p>
+                    <p className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{stats.applicants}</p>
                     <p className="text-md text-gray-500 dark:text-gray-400">Total Applicants</p>
                 </Card>
             </motion.div>

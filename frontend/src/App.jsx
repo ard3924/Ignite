@@ -9,6 +9,8 @@ import LoginPage from './pages/LoginPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
+import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
+import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
 import ClientDashboard from './pages/ClientDashboard.jsx';
 import CreateProjectPage from './pages/CreateProjectPage.jsx';
 import EditProjectPage from './pages/EditProjectPage.jsx';
@@ -54,6 +56,9 @@ const App = () => {
           <Route path="profile/:userId" element={<ProfilePage />} /> {/* For public profiles */}
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
+          <Route path="forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="reset-password" element={<ResetPasswordPage />} />
+
           <Route path="dashboard" element={<ClientDashboard />} />
           <Route path="create-project" element={<CreateProjectPage />} />
           <Route

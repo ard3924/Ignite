@@ -219,7 +219,7 @@ const ClientView = ({ user, projects, isOwnProfile, isEditing, handleInputChange
     >
         <motion.div variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.05)" }}>
             <Card>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Building size={20} className="mr-2" /> About {user.groupName || 'the Client'}</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Building size={20} className="mr-2" /> About {user.groupName || 'the Client'}</h2>
                 {isEditing ? (
                     <textarea name="bio" value={user.bio} onChange={handleInputChange} className="w-full h-24 p-2 text-gray-700 dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
                 ) : (
@@ -229,7 +229,7 @@ const ClientView = ({ user, projects, isOwnProfile, isEditing, handleInputChange
         </motion.div>
         <motion.div variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.05)" }} className="relative">
             <Card>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Briefcase size={20} className="mr-2" /> Posted Projects</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Briefcase size={20} className="mr-2" /> Posted Projects</h2>
                 <div className="space-y-4">
                     {projects.length > 0 ? projects.map(project => (
                         <Link to={`/projects/${project._id}/applicants`} key={project._id} className="block p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors group">
@@ -280,7 +280,7 @@ const FreelancerView = ({ user, isOwnProfile, isEditing, handleInputChange, hand
         <div className="lg:col-span-2 space-y-8 order-2 lg:order-1">
             <motion.div variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.05)" }}>
                 <Card>
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><User size={20} className="mr-2" /> About</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><User size={20} className="mr-2" /> About</h2>
                     {isEditing ? (
                         <textarea name="bio" value={user.bio} onChange={handleInputChange} className="w-full h-24 p-2 text-gray-700 dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
                     ) : (
@@ -291,7 +291,7 @@ const FreelancerView = ({ user, isOwnProfile, isEditing, handleInputChange, hand
 
             <motion.div variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.05)" }}>
                 <Card className="bg-white dark:bg-gray-800/50">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Code size={20} className="mr-2" /> Skills</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Code size={20} className="mr-2" /> Skills</h2>
                     {isEditing ? (
                         <div >
                             <input type="text" name="skills" value={skillsInput} onChange={(e) => setSkillsInput(e.target.value)} className="w-full p-2 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="React, Node.js, ..." />
@@ -315,7 +315,7 @@ const FreelancerView = ({ user, isOwnProfile, isEditing, handleInputChange, hand
 
             <motion.div variants={itemVariants} whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.05)" }}>
                 <Card className="bg-white dark:bg-gray-800/50">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Briefcase size={20} className="mr-2" /> Past Projects</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center"><Briefcase size={20} className="mr-2" /> Past Projects</h2>
                     <div className="space-y-4 -mx-4 max-h-72 overflow-y-auto pr-2">
                         {user.pastProjects.length > 0 ? user.pastProjects.map((project, index) => (
                             <div key={index} className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 last:border-b-0">

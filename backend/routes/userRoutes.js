@@ -10,6 +10,7 @@ const bcrypt = require('bcryptjs');
 const axios = require('axios');
 const { BaseUser, Freelancer, Client } = require('../models/userModel');
 const projectModel = require('../models/projectModel');
+const { sendPasswordResetOTP } = require('../db/mailer');
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
@@ -24,7 +25,7 @@ router.post('/signup', async (req, res) => {
             params: {
                 secret: process.env.RECAPTCHA_SECRET_KEY,
                 response: captchaToken
-                
+
             }
         });
 
@@ -92,7 +93,7 @@ router.post('/login', async (req, res) => {
 });
 
 // @route   POST /api/user/forgot-password
-// @desc    Send email to reset password
+// @desc    Send OTP to reset password
 // @access  Public
 router.post('/forgot-password', async (req, res) => {
     try {
@@ -101,56 +102,54 @@ router.post('/forgot-password', async (req, res) => {
 
         if (!user) {
             // To prevent email enumeration, we send a success response even if the user doesn't exist.
-            return res.status(200).json({ message: 'If a user with that email exists, a password reset link has been sent.' });
+            return res.status(200).json({ message: 'If a user with that email exists, an OTP has been sent.' });
         }
 
-        // 1. Generate a random reset token
-        const resetToken = crypto.randomBytes(32).toString('hex');
+        // 1. Generate a 6-digit OTP
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-        // 2. Hash token and set it on the user model
-        user.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
-        user.passwordResetExpires = Date.now() + 10 * 60 * 1000; // Token expires in 10 minutes
+        // 2. Set OTP and expiration on the user model
+        user.otp = otp;
+        user.otpExpires = Date.now() + 10 * 60 * 1000; // OTP expires in 10 minutes
 
         await user.save({ validateBeforeSave: false });
 
-        // 3. Send it to the user's email
-        // In a real app, you would use a service like Nodemailer or SendGrid here.
-        // For this example, we'll just log the reset URL to the console.
-        const resetURL = `http://localhost:5173/reset-password/${resetToken}`;
-        console.log('Password Reset URL:', resetURL);
+        // 3. Send the email with OTP
+        await sendPasswordResetOTP(user.email, otp);
 
-        res.status(200).json({ message: 'If a user with that email exists, a password reset link has been sent.' });
+        res.status(200).json({ message: 'If a user with that email exists, an OTP has been sent.' });
     } catch (error) {
-        // In case of an error, clear the token fields to be safe
-        if (req.user) {
-            req.user.passwordResetToken = undefined;
-            req.user.passwordResetExpires = undefined;
-            await req.user.save({ validateBeforeSave: false });
+        // In case of an error, clear the OTP fields to be safe
+        if (user) {
+            user.otp = undefined;
+            user.otpExpires = undefined;
+            await user.save({ validateBeforeSave: false });
         }
         console.error('Forgot password error:', error);
         res.status(500).json({ message: 'An error occurred while processing your request.' });
     }
 });
 
-// @route   POST /api/user/reset-password/:token
-// @desc    Reset password
+// @route   POST /api/user/verify-otp
+// @desc    Verify OTP and reset password
 // @access  Public
-router.post('/reset-password/:token', async (req, res) => {
+router.post('/verify-otp', async (req, res) => {
     try {
-        const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+        const { email, otp, newPassword } = req.body;
 
         const user = await BaseUser.findOne({
-            passwordResetToken: hashedToken,
-            passwordResetExpires: { $gt: Date.now() }
+            email,
+            otp,
+            otpExpires: { $gt: Date.now() }
         });
 
         if (!user) {
-            return res.status(400).json({ message: 'Token is invalid or has expired.' });
+            return res.status(400).json({ message: 'OTP is invalid or has expired.' });
         }
 
-        user.password = await bcrypt.hash(req.body.password, 12);
-        user.passwordResetToken = undefined;
-        user.passwordResetExpires = undefined;
+        user.password = await bcrypt.hash(newPassword, 12);
+        user.otp = undefined;
+        user.otpExpires = undefined;
         await user.save();
 
         res.status(200).json({ message: 'Password has been reset successfully.' });

@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 const PORT = process.env.PORT
+const helmet = require('helmet')
 const morgan = require('morgan')
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
@@ -11,11 +12,18 @@ const projectRoutes = require('./routes/projectRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const testimonialRoutes = require('./routes/testimonialRoutes');
 const adminRoutes = require('./routes/adminRoutes');
-// const methodOverride = require('method-override');
 const connectDB = require('./db/connection')
 const path = require('path')
 app.use(morgan('dev'))
 app.use(cors())
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "img-src": ["'self'", "data:", "res.cloudinary.com"],
+    },
+  })
+);
 app.use(express.json())
 
 // Configure Cloudinary
@@ -25,8 +33,6 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-// Serve uploads folder statically
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 const startServer = async () => {
     await connectDB();
@@ -40,5 +46,11 @@ app.use('/api/projects', projectRoutes)
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/admin', adminRoutes);
+//for production
+app.use(express.static(path.join(__dirname, 'build')));
 
+// This makes sure that any non-API route serves the React app
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 startServer();

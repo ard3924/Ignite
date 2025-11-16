@@ -288,10 +288,10 @@ const ClientCtaSection = () => {
             <div className="bg-gray-100 dark:bg-gray-800/50 rounded-3xl p-8 md:p-12 shadow-lg border border-gray-200 dark:border-gray-700">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="text-left order-2 md:order-1">
-                        <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
                             Got an Idea? Let's Build It.
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg text-lg">
+                        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg text-base sm:text-lg">
                             Access a global network of skilled freelancers ready to tackle your project. Post your requirements for free and start receiving proposals from top talent today.
                         </p>
                         <motion.button
@@ -650,10 +650,10 @@ const ProjectsPage = () => {
         >
             <div className="grid md:grid-cols-2 gap-8 items-center mb-12 px-4 sm:px-6 lg:px-8">
                 <motion.div variants={itemVariants}>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         {user?.role === 'Client' ? 'Your Posted Projects' : 'Find Your Next Collaboration'}
                     </h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6">
                         {user?.role === 'Client' ? 'Manage your projects and review talented applicants.' : 'Browse opportunities and join a team of innovators.'}
                     </p>
                     <div className="space-y-6 max-w-2xl">

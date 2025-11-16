@@ -14,6 +14,8 @@ const baseUserSchema = new mongoose.Schema({
     groupName: { type: String, default: '' },
     image: { type: String, default: '' },
     bio: { type: String, default: '' },
+    otp: String,
+    otpExpires: Date,
 }, baseOptions);
 
 const BaseUser = mongoose.model('BaseUser', baseUserSchema);
