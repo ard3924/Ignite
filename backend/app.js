@@ -20,7 +20,14 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      // Allow images from Cloudinary (you already had this)
       "img-src": ["'self'", "data:", "res.cloudinary.com"],
+      
+      // Allow scripts from Google reCAPTCHA
+      "script-src": ["'self'", "https://www.google.com/recaptcha/", "https://www.gstatic.com/recaptcha/"],
+      
+      // Allow iframes from Google reCAPTCHA (required for the widget)
+      "frame-src": ["'self'", "https://www.google.com/recaptcha/", "https://recaptcha.google.com/recaptcha/"],
     },
   })
 );
