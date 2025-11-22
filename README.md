@@ -76,10 +76,10 @@ Follow these instructions to get the project up and running on your local machin
 4.  **Start the backend server:**
     ```sh
     # For production
-    npm start
+    nodemon app
 
     # For development with auto-reloading
-    npm run dev 
+    node app
     ```
     The server should now be running, typically on a port like `5000` or `8000`.
 
