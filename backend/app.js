@@ -53,11 +53,15 @@ app.use('/api/projects', projectRoutes)
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/admin', adminRoutes);
-//for production
-app.use(express.static(path.join(__dirname, 'build')));
+// //for production
+// app.use(express.static(path.join(__dirname, 'build')));
 
-// This makes sure that any non-API route serves the React app
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// // This makes sure that any non-API route serves the React app
+// app.get(/.*/, (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+//test route
+app.get('/', (req, res) => {
+  res.send('API is running successfully');
 });
 startServer();
