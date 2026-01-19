@@ -83,7 +83,7 @@ const ResetPasswordPage = () => {
                     <Link to="/login" className="absolute top-4 left-4 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 z-10">
                         <ArrowLeft size={24} />
                     </Link>
-                    <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6 mt-12">Reset Password</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 dark:text-white mb-6 mt-12">Reset Password</h2>
                     <motion.form onSubmit={handleSubmit} variants={formVariants} initial="hidden" animate="visible">
                         <motion.div className="mb-4" variants={itemVariants}>
                             <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="email">Email</label>

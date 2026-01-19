@@ -324,7 +324,7 @@ const TeamPage = () => {
                 >
                     <ArrowLeft size={24} />
                 </button>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white text-center">Project Collaboration</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">Project Collaboration</h1>
                 <p className="text-center text-gray-500 dark:text-gray-400 mt-1">All accepted freelancers for your projects.</p>
             </motion.div>
 

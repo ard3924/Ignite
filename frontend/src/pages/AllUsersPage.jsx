@@ -70,7 +70,7 @@ const AllUsersPage = () => {
                 <button onClick={() => navigate(-1)} className="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Back">
                     <ArrowLeft size={24} />
                 </button>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white text-center">All Users ({users.length})</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">All Users ({users.length})</h1>
             </motion.div>
 
             <motion.div variants={itemVariants} className="mb-8 max-w-lg mx-auto">

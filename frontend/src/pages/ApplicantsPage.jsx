@@ -111,7 +111,7 @@ const ApplicantsPage = () => {
                 >
                     <ArrowLeft size={24} />
                 </button>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white text-center">Applicants for</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">Applicants for</h1>
                 <p className="text-2xl text-indigo-600 dark:text-indigo-400 text-center">{project?.title}</p>
             </motion.div>
 

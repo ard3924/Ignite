@@ -115,7 +115,7 @@ const SignupPage = () => {
                 <Card className="w-full max-w-lg">
 
                     <motion.h2
-                        className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8"
+                        className="text-2xl sm:text-3xl font-bold text-center text-gray-900 dark:text-white mb-8"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
@@ -207,7 +207,7 @@ const SignupPage = () => {
                         >
                             <ArrowLeft size={24} />
                         </button>
-                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Create Account</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Create Account</h2>
                         <p className="text-gray-500 dark:text-gray-400 mt-1">as a {role}</p>
                     </div>
 

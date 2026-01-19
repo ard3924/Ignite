@@ -151,7 +151,7 @@ const AllApplicantsPage = () => {
                 >
                     <ArrowLeft size={24} />
                 </button>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white text-center">All Applicants</h1>
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">All Applicants</h1>
             </motion.div>
 
             {!allProjectsHaveNoApplicants && (
